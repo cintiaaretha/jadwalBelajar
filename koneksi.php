@@ -6,7 +6,7 @@
 
 $konek = new mysqli ($hostname, $username, $password, $database);
 
-if ($konek -> connect_error) {
-    die('Maaf koneksi gagal: ' . $konek->connect_error);
+if ($koneksi -> connect_error) {
+    die('Maaf koneksi gagal: ' . $koneksi->connect_error);
 }
 ?>
