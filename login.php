@@ -14,9 +14,9 @@
             $_SESSION['id'] = $data['id'];
             header("Location: dashboard.php");
             exit;
-    } else {
-        $error = "Username atau password salah!";
-    }
+        }else{
+            $error = "Username atau password salah!";
+        }
 }
 ?>
 

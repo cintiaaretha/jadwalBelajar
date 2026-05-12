@@ -1,10 +1,21 @@
 <?php
-session_start();
+    session_start();
 
-if(isset($_SESSION['username'])){
-    header("Location: login.php");
-    exit;
-}
+    if(isset($_SESSION['username'])){
+        header("Location: login.php");
+        exit;
+    }
+
+    if(isset($_POST['tambah'])){
+        $user_id = $_SESSION['id'];
+        $mapel = $_POST['mapel'];
+        $hari = $_POST['hari'];
+        $jam_mulai = $_POST['jam_mulai'];
+        $jam_selesai = $_POST['jam_selesai'];
+        $catatan = $_POST['catatan'];
+
+        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, mapel, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$mapel','$hari','$jam_mulai','$jam_selesai','$catatan')");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +28,6 @@ if(isset($_SESSION['username'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
    <style>
-
         *{
             margin: 0;
             padding: 0;
@@ -25,16 +35,11 @@ if(isset($_SESSION['username'])){
         }
         body{
             min-height: 100vh;
-            background-image:
-            linear-gradient(rgba(0,0,0,0.4),
-            rgba(0,0,0,0.4)),
-            url('background2.gif');
-
+            background-image: url('background.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-
             font-family: Arial, sans-serif;
         }
         .navbar{
@@ -105,57 +110,55 @@ if(isset($_SESSION['username'])){
 
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-
         <div class="container">
-            <a class="navbar-brand" href=""><i class="bi bi-book-half">Schedulio</i></a>
+            <a class="navbar-brand"><i class="bi bi-book-half"></i> Schedulio</a>
 
-            <button class="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            Dashboard
-                        </a>
+                        <a class="nav-link active" href="#">Dashboard</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
-                            Logout
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="conainer main-container">
+    <!-- Main -->
+    <div class="container main-container">
+        <!-- Header -->
         <div class="header">
-            <h2>Jadwal Belajar</h2>
-            <p class="mb-0">Selamat datang, <b><?php echo $_SESSION['username']; ?></b>
+            <h1>Jadwal Belajar</h1>
+            <p class="mb-0">
+                Selamat datang,
+                <b><?php echo $_SESSION['username']; ?></b>
             </p>
+
         </div>
 
+        <!-- Form Tambah Jadwal -->
         <div class="card p-4 mb-4 shadow-lg">
-            <h4>class="mb-4 text-center">
-            Tambah Jadwal</h4>
+            <h4 class="mb-4 text-center">Tambah Jadwal</h4>
 
-            <form action="#">
+            <form>
                 <div class="row">
-                    <div class="col-md-2 mb-3">
+                    <!-- Mata Pelajaran -->
+                    <div class="col-md-3 mb-3">
                         <input type="text" class="form-control" placeholder="Mata Pelajaran">
                     </div>
-                    
+
+                    <!-- Hari -->
                     <div class="col-md-2 mb-3">
                         <select class="form-control">
-                            <option selected disabled>
-                                Pilih Hari
-                            </option>
+                            <option selected disabled>Pilih Hari</option>
                             <option>Senin</option>
                             <option>Selasa</option>
                             <option>Rabu</option>
@@ -164,104 +167,83 @@ if(isset($_SESSION['username'])){
                         </select>
                     </div>
 
+                    <!-- Jam Mulai -->
                     <div class="col-md-2 mb-3">
-                    <input type="time"
-                           class="form-control">
+                        <input type="time" class="form-control">
                     </div>
 
                     <!-- Jam Selesai -->
                     <div class="col-md-2 mb-3">
-                    <input type="time"
-                           class="form-control">
+                        <input type="time" class="form-control">
                     </div>
 
+                    <!-- Catatan -->
                     <div class="col-md-2 mb-3">
-                    <input type="text"
-                           class="form-control"
-                           placeholder="Catatan">
+                        <input type="text"
+                            class="form-control"
+                            placeholder="Catatan">
                     </div>
 
+                    <!-- Button -->
                     <div class="col-md-1 mb-3">
-
-                    <button type="submit"
-                            class="btn btn-warning w-100 btn-custom">
-
-                        +
-                    </button>
+                        <button type="submit" class="btn btn-warning w-100 btn-custom">
+                            +
+                        </button>
                     </div>
-                </div> 
+                </div>
             </form>
         </div>
 
+        <!-- Table -->
         <div class="card p-4 shadow-lg">
-        <h4 class="mb-4 text-center">
-            Daftar Jadwal
-        </h4>
+            <h4 class="mb-4 text-center">Daftar Jadwal</h4>
 
-        <div class="table-responsive">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center align-middle">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Hari</th>
+                            <th>Mulai</th>
+                            <th>Selesai</th>
+                            <th>Catatan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
 
-            <table class="table table-bordered table-hover text-center align-middle">
+                    <tbody>
+                        <?php
+                            $no = 1;
+                            $id_user = $_SESSION['id'];
+                            $query = mysqli_query($koneksi, "SELECT * FROM jadwal WHERE user_id='$id_user'"); while($data = mysqli_fetch_assoc($query)){
+                        ?>
 
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Mata Pelajaran</th>
-                        <th>Hari</th>
-                        <th>Mulai</th>
-                        <th>Selesai</th>
-                        <th>Catatan</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $data['mapel']; ?></td>
+                            <td><?php echo $data['hari']; ?></td>
+                            <td><?php echo $data['jam_mulai']; ?></td>
+                            <td><?php echo $data['jam_selesai']; ?></td>
+                            <td><?php echo $data['catatan']; ?></td>
 
-                <tbody>
+                            <td>
+                                <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
 
-                    <tr>
-                        <td>1</td>
-                        <td>Algoritma dan Struktur Data</td>
-                        <td>Senin</td>
-                        <td>08:00</td>
-                        <td>10:00</td>
-                        <td>Belajar array dan linked list</td>
-
-                        <td>
-                            <a href="edit.php?id=1"
-                               class="btn btn-warning btn-sm">
-                                Edit
-                            </a>
-
-                            <a href="hapus.php?id=1"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Yakin mau hapus jadwal ini?')">
-                                Hapus
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Manajemen Basis Data</td>
-                        <td>Kamis</td>
-                        <td>13:00</td>
-                        <td>15:00</td>
-                        <td>Belajar ERD dan relasi tabel</td>
-                        <td>
-                            <a href="edit.php?id=2"
-                               class="btn btn-warning btn-sm">
-                                Edit
-                            </a>
-                            <a href="hapus.php?id=2"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Yakin mau hapus jadwal ini?')">
-                                Hapus
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus jadwal ini?')">
+                                    Hapus
+                                </a>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    </div>
     <footer>
         <p>© 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032</p>
     </footer>
