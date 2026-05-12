@@ -6,8 +6,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $query = mysqli_query($koneksi, "SELECT * FROM pengguna 
-        WHERE username='$username' AND password='$password'");
+        $query = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
 
         if(mysqli_num_rows($query) > 0){
             $data = mysqli_fetch_assoc($query);

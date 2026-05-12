@@ -103,11 +103,8 @@ if(isset($_POST['regis'])){
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-<<<<<<< HEAD
             <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i><i> Schedulio</i></a>
-=======
-            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i> Schedulio</a>
->>>>>>> 8224d0a5ddbc5662d5b8eed38ed9a8e877e23981
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
