@@ -37,20 +37,28 @@ if(isset($_POST['regis'])){
             height: 100%;
             margin: 0;
         }
-        
+
         body{
+            background-image: url('img/background.gif');
             background-size: cover;
             background-position: center;
-            background-repeat: flex;
+            display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
-        .navbar{
-            background: linear-gradient();
+        .navbar {
+            background: linear-gradient(135deg, #dc02a2, #df9f30);
         }
-        .navbar-brand, .nav-link{
-            color: white;
+
+        .navbar-brand {
             font-weight: bold;
+            color: white;
         }
+
+        .nav-link {
+            color: white;
+        }
+
         .main-content{
             flex: 1;
             display: flex;
@@ -58,43 +66,43 @@ if(isset($_POST['regis'])){
             align-items: center;
             padding: 20px;
         }
+
         .register-card{
             width: 100%;
             max-width: 450px;
             border: none;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0,93);
-            backdrop-filter: blur(5px);
         }
-        .register-tittle{
+
+        .register-title{
             font-weight: bold;
             color: #dc02a2;
         }
+
         .form-control{
             border-radius: 10px;
             padding: 10px;
         }
-        .form-control:focus{
-            border-color: #dc02a2;
-            box-shadow: 0 0 5px rgba(220,2,162,0.5);
-        }
+        
         .btn-register{
             border-radius: 10px;
             font-weight: bold;
             padding: 10px;
         }
-        footer{
+        
+        footer {
             background: linear-gradient(135deg, #dc02a2, #df9f30);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 10px;
+            margin-top: 50px;
         }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i> StudyPlanner</a>
+            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i> Schedulio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
