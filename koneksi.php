@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hallo
-</body>
-</html>
+<?php
+$host = "localhost";
+$username = "root";
+$password = "";
+$file = "jadwalbelajar";
+
+$koneksi = mysqli_connect($host, $username, $password, $file);
+?>
