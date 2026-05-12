@@ -14,7 +14,7 @@
         $jam_selesai = $_POST['jam_selesai'];
         $catatan = $_POST['catatan'];
 
-        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, mapel, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$mapel','$hari','$jam_mulai','$jam_selesai','$catatan')");
+       mysqli_query($koneksi, "INSERT INTO jadwal (user_id, mapel, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$mapel','$hari','$jam_mulai','$jam_selesai','$catatan')");
     }
 ?>
 
@@ -34,13 +34,12 @@
             box-sizing: border-box;
         }
         body{
-            min-height: 100vh;
-            background-image: url('background.gif');
+            background-image: url('img/background.gif');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .navbar{
             background: linear-gradient(135deg, #dc02a2, #df9f30);
@@ -62,7 +61,6 @@
             border-radius: 20px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .header h2{
             font-weight: bold;
