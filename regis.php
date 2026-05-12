@@ -37,6 +37,7 @@ if(isset($_POST['regis'])){
             height: 100%;
             margin: 0;
         }
+        
         body{
             background-size: cover;
             background-position: center;
@@ -127,7 +128,7 @@ if(isset($_POST['regis'])){
                 </div>
                 <button type="submit" name="register" class="btn btn-warning w-100 btn-register">Daftar</button>
             </form>
-            <br><a href="login.php"><center>Sudah punya akun? Login sekarang</center></a>
+            <br><a class="text-center" href="login.php">Sudah punya akun? Login sekarang</a>
         </div>
     </div>
 
