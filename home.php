@@ -146,7 +146,7 @@
                 Website manajemen jadwal belajar yang dirancang untuk membantu mahasiswa <br> mengatur waktu belajar agar lebih terstruktur dan efisien.
             </p>
 
-            <a href="login.php" class="btn btn-warning btn-lg mt-3">Mulai Sekarang</a>
+            <a href="regis.php" class="btn btn-warning btn-lg mt-3">Mulai Sekarang</a>
         </div>
     </section>
 
