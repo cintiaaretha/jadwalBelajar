@@ -74,6 +74,7 @@ if(isset($_POST['regis'])){
             border-radius: 20px;
         }
 
+
         .register-title{
             font-weight: bold;
             color: #dc02a2;
@@ -121,20 +122,20 @@ if(isset($_POST['regis'])){
             <h2 class="text-center mb-4 register-title">DAFTAR AKUN</h2>
 
             <?php if($error != ''): ?>
-                <div class="alert alert-warming text-center"><?php echo $error;?></div>
+                <div class="alert alert-danger text-center"><?php echo $error;?></div>
             <?php endif; ?>
             <?php if($berhasil != ''): ?>
-                <div class="alert alert-warming text-center"><?php echo $berhasil;?></div>
+                <div class="alert alert-success text-center"><?php echo $berhasil;?></div>
             <?php endif; ?>
 
-            <form action="POST">
+            <form action="regis.php" method="POST">
                 <div class="mb-3">
                     <input type="text" name="username" class="form-control" placeholder="Username" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" name="passowrd" class="form-control" placeholder="Password" required>
+                    <input type="password" name="passoword" class="form-control" placeholder="Password" required>
                 </div>
-                <button type="submit" name="register" class="btn btn-warning w-100 btn-register">Daftar</button>
+                <button type="submit" name="regis" class="btn btn-warning w-100 btn-register">Daftar</button>
             </form>
             <br><a class="text-center" href="login.php">Sudah punya akun? Login sekarang</a>
         </div>
