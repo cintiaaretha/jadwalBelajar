@@ -37,7 +37,6 @@ if(isset($_POST['regis'])){
             margin: 0;
         }
         body{
-            background-image: ;
             background-size: cover;
             background-position: center;
             background-repeat: flex;
