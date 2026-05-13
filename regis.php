@@ -37,13 +37,14 @@ if(isset($_POST['regis'])){
             margin: 0;
         }
         body{
+            background-image: url('background2.gif');
             background-size: cover;
             background-position: center;
             background-repeat: flex;
             flex-direction: column;
         }
         .navbar{
-            background: linear-gradient();
+            background: linear-gradient(135deg, #dc02a2, #df9f30);
         }
         .navbar-brand, .nav-link{
             color: white !important;
