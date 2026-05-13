@@ -6,7 +6,7 @@
     <title>Schedulio: Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <link rel="icon" type="image/x-icon" href="img/book.png" />
     <style>
         body {
             background-color: #fff5fb;
@@ -93,13 +93,6 @@
             line-height: 1.8;
         }
 
-        footer {
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 50px;
-        }
     </style>
 </head>
 
@@ -210,8 +203,10 @@
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032</p>
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30)">
+      <div class="text-center p-3" style="color: whitesmoke;">
+        © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

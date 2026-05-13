@@ -27,13 +27,14 @@
     <title>Schedulio: Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <link rel="icon" type="image/x-icon" href="img/book.png" />
    <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body{
             background-image: url('img/background.gif');
             background-size: cover;
@@ -42,19 +43,24 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .navbar{
+
+        .navbar {
             background: linear-gradient(135deg, #dc02a2, #df9f30);
         }
-        .navbar-brand{
+
+        .navbar-brand {
             font-weight: bold;
-            color: white !important;
+            color: white;
         }
-        .nav-link{
-            color: white !important;
+
+        .nav-link {
+            color: white;
         }
+
         .main-container{
             padding: 40px 20px;
         }
+
         .header{
             background: linear-gradient(135deg, #dc02a2, #df9f30);
             color: white;
@@ -63,48 +69,26 @@
             text-align: center;
             margin-bottom: 30px;
         }
+
         .header h2{
             font-weight: bold;
         }
+
         .card{
             border: none;
             border-radius: 20px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(5px);
         }
+
         .form-control{
             border-radius: 10px;
             padding: 10px;
         }
-        select.form-control{
-            height: 45px;
-        }
-        .form-control:focus{
-            border-color: #dc02a2;
-            box-shadow: 0 0 5px rgba(220,2,162,0.5);
-        }
-        .btn-custom{
-            border-radius: 10px;
-            font-weight: bold;
-        }
+        
         .table{
             overflow: hidden;
             border-radius: 15px;
         }
-        .table thead{
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-        }
-        .table-hover tbody tr:hover{
-            background-color: rgba(220,2,162,0.08);
-        }
-        footer{
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-        }
+
     </style>
 
 </head>
@@ -243,8 +227,10 @@
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032</p>
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30); margin-top:auto;">
+      <div class="text-center p-3" style="color: whitesmoke;">
+        © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

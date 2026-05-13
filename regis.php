@@ -32,6 +32,7 @@ if(isset($_POST['regis'])){
     <title>Schedulio: Registrasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/x-icon" href="img/book.png" />
     <style>
         html, body{
             height: 100%;
@@ -90,25 +91,12 @@ if(isset($_POST['regis'])){
             font-weight: bold;
             padding: 10px;
         }
-        
-        footer {
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 50px;
-        }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-<<<<<<< HEAD
-            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i>  </a> 
-=======
-            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i><i> Schedulio</i></a>
-
->>>>>>> dd2ad78954cefa4ab580ff61e903797f28709eb0
+            <a class="navbar-brand" href="home.php"><i class="bi bi-book-half"></i> Schedulio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -146,8 +134,10 @@ if(isset($_POST['regis'])){
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032</p>
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30)">
+      <div class="text-center p-3" style="color: whitesmoke;">
+        © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
