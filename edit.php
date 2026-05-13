@@ -72,11 +72,11 @@
         .header{
             background: linear-gradient(135deg, #dc02a2, #df9f30);
             color: white;
-            padding: 30px;
             border-radius: 20px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin: 0 auto 30px auto;
+            padding: 30px;
+            max-width: 750px;
         }
 
         .header h2{
@@ -88,6 +88,11 @@
             border-radius: 20px;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(5px);
+        }
+
+       .edit-card{
+            max-width: 750px;
+            border-radius: 15px;
         }
 
         .form-control{
@@ -144,18 +149,18 @@
         </div>
 
         <!-- Card Edit -->
-        <div class="card p-4 shadow-lg">
-            <h4 class="mb-4 text-center">Form Edit Jadwal</h4>
+        <div class="card p-4 shadow-lg mx-auto edit-card">
+            <h4 class="mb-2 text-center">Form Edit Jadwal</h4>
 
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">Mata Kuliah</label>
-                    <input type="text" name="makul" class="form-control" value="<?= $data['mapel']; ?>" placeholder="Masukkan mata pelajaran" required>
+                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata pelajaran" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Hari</label>
-                    <select name="hari" class="form-control" value="<?= $data['hari']; ?>" required>
+                    <select name="hari" class="form-control" required>
                         <option value="Senin" <?= ($data['hari']=='Senin') ? 'selected' : ''; ?>>Senin</option>
                         <option value="Selasa" <?= ($data['hari']=='Selasa') ? 'selected' : ''; ?>>Selasa</option>
                         <option value="Rabu" <?= ($data['hari']=='Rabu') ? 'selected' : ''; ?>>Rabu</option>
@@ -166,17 +171,17 @@
 
                 <div class="mb-3">
                     <label class="form-label">Jam Mulai</label>
-                    <input type="time" name="jam_mulai" class="form-control" value="<?= $data['jam_mulai']; ?>" required>
+                    <input type="time" name="jam_mulai" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Jam Selesai</label>
-                    <input type="time" name="jam_selesai" class="form-control" value="<?= $data['jam_selesai']; ?>" required>
+                    <input type="time" name="jam_selesai" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Catatan</label>
-                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"><?= $data['catatan']; ?></textarea>
+                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"></textarea>
                 </div>
 
                 <button type="submit" name="update" class="btn btn-warning w-100 btn-custom">
