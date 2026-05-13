@@ -9,7 +9,7 @@
 
     <style>
         body {
-        background-color: #fff5fb;
+            background-color: #fff5fb;
         }
 
         .navbar {
@@ -97,16 +97,17 @@
             background: linear-gradient(135deg, #dc02a2, #df9f30);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 10px;
             margin-top: 50px;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand"><i class="bi bi-book-half"> Schedulio</i></a>
+            <a class="navbar-brand"><i class="bi bi-book-half"></i> Schedulio</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -115,26 +116,26 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active">Home</a>
+                        <a class="nav-link active" href="#">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link">Features</a>
+                        <a class="nav-link" href="#fitur">Features</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link btn btn-light text-dark px-3 ms-2" href="login.php">Login</a>
+                        <a class="nav-link btn btn-warning text-dark px-3 ms-2" href="login.php">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Logo -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="logo-circle">
