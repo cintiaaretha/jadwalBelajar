@@ -4,5 +4,5 @@
     $id = $_GET['id'];
     mysqli_query($koneksi, "DELETE FROM jadwal WHERE id='$id'");
 
-    header("Location: lihat.php");
+    header("Location: dashboard.php");
 ?>

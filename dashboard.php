@@ -9,13 +9,19 @@
 
     if(isset($_POST['tambah'])){
         $user_id = $_SESSION['id'];
-        $mapel = $_POST['mapel'];
+        $matkul = $_POST['matkul'];
         $hari = $_POST['hari'];
         $jam_mulai = $_POST['jam_mulai'];
         $jam_selesai = $_POST['jam_selesai'];
         $catatan = $_POST['catatan'];
 
-       mysqli_query($koneksi, "INSERT INTO jadwal (user_id, mapel, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$mapel','$hari','$jam_mulai','$jam_selesai','$catatan')");
+        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, matkul, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$matkul','$hari','$jam_mulai','$jam_selesai','$catatan')");
+
+        if($query){
+            echo "<script>alert('Data berhasil ditambahkan!'); window.location='dashboard.php';</script>";
+        } else {
+            echo "<script>alert('Gagal: " . mysqli_error($koneksi) . "');</script>";
+        }
     }
 ?>
 
@@ -131,45 +137,43 @@
         <div class="card p-4 mb-4 shadow-lg">
             <h4 class="mb-4 text-center">Tambah Jadwal</h4>
 
-            <form>
+            <form method="POST">
                 <div class="row">
-                    <!-- Mata Pelajaran -->
+                    <!-- Mata Kuliah -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" class="form-control" placeholder="Mata Pelajaran">
+                        <input type="text" name="matkul" class="form-control" placeholder="Mata Kuliah" required>
                     </div>
 
                     <!-- Hari -->
                     <div class="col-md-2 mb-3">
-                        <select class="form-control">
-                            <option selected disabled>Pilih Hari</option>
-                            <option>Senin</option>
-                            <option>Selasa</option>
-                            <option>Rabu</option>
-                            <option>Kamis</option>
-                            <option>Jumat</option>
+                        <select name="hari" class="form-control" required>
+                            <option value="" selected disabled>Pilih Hari</option>
+                            <option value="Senin">Senin</option>
+                            <option value="Selasa">Selasa</option>
+                            <option value="Rabu">Rabu</option>
+                            <option value="Kamis">Kamis</option>
+                            <option value="Jumat">Jumat</option>
                         </select>
                     </div>
 
                     <!-- Jam Mulai -->
                     <div class="col-md-2 mb-3">
-                        <input type="time" class="form-control">
+                        <input type="time" name="jam_mulai" class="form-control" required>
                     </div>
 
                     <!-- Jam Selesai -->
                     <div class="col-md-2 mb-3">
-                        <input type="time" class="form-control">
+                        <input type="time" name="jam_selesai" class="form-control" required>
                     </div>
 
                     <!-- Catatan -->
                     <div class="col-md-2 mb-3">
-                        <input type="text"
-                            class="form-control"
-                            placeholder="Catatan">
+                        <input type="text" name="catatan" class="form-control" placeholder="Catatan">
                     </div>
 
                     <!-- Button -->
                     <div class="col-md-1 mb-3">
-                        <button type="submit" class="btn btn-warning w-100 btn-custom">
+                        <button type="submit" name="tambah" class="btn btn-warning w-100 btn-custom">
                             +
                         </button>
                     </div>
@@ -186,7 +190,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Mata Pelajaran</th>
+                            <th>Mata Kuliah</th>
                             <th>Hari</th>
                             <th>Mulai</th>
                             <th>Selesai</th>
@@ -204,7 +208,7 @@
 
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $data['mapel']; ?></td>
+                            <td><?php echo $data['matkul']; ?></td>
                             <td><?php echo $data['hari']; ?></td>
                             <td><?php echo $data['jam_mulai']; ?></td>
                             <td><?php echo $data['jam_selesai']; ?></td>
