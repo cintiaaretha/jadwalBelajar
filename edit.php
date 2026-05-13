@@ -164,27 +164,27 @@
                 <div class="mb-3">
                     <label class="form-label">Hari</label>
                     <select name="hari" class="form-control" value="<?= $data['hari']; ?>" required>
-                        <option <?= ($data['hari']=='Senin') ? 'selected' : ''; ?>>Senin</option>
-                        <option <?= ($data['hari']=='Selasa') ? 'selected' : ''; ?>>Selasa</option>
-                        <option <?= ($data['hari']=='Rabu') ? 'selected' : ''; ?>>Rabu</option>
-                        <option <?= ($data['hari']=='Kamis') ? 'selected' : ''; ?>>Kamis</option>
-                        <option <?= ($data['hari']=='Jumat') ? 'selected' : ''; ?>>Jumat</option>
+                        <option value="Senin" <?= ($data['hari']=='Senin') ? 'selected' : ''; ?>>Senin</option>
+                        <option value="Selasa" <?= ($data['hari']=='Selasa') ? 'selected' : ''; ?>>Selasa</option>
+                        <option value="Rabu" <?= ($data['hari']=='Rabu') ? 'selected' : ''; ?>>Rabu</option>
+                        <option value="Kamis" <?= ($data['hari']=='Kamis') ? 'selected' : ''; ?>>Kamis</option>
+                        <option value="Jum" <?= ($data['hari']=='Jumat') ? 'selected' : ''; ?>>Jumat</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Jam Mulai</label>
-                    <input type="time" name="mulai" class="form-control" value="<?= $data['jam_mulai']; ?>" required>
+                    <input type="time" name="jam_mulai" class="form-control" value="<?= $data['jam_mulai']; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Jam Selesai</label>
-                    <input type="time" name="selesai" class="form-control" value="<?= $data['jam_selesai']; ?>" required>
+                    <input type="time" name="jam_selesai" class="form-control" value="<?= $data['jam_selesai']; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Catatan</label>
-                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"><?= $data['catatan']; ?>></textarea>
+                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"><?= $data['catatan']; ?></textarea>
                 </div>
 
                 <button type="submit" name="update" class="btn btn-warning w-100 btn-custom">
