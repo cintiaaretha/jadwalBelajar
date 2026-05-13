@@ -44,7 +44,7 @@
 
         body{
             min-height: 100vh;
-            background-image: url('background.gif');
+            background-image: url('img/background.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
