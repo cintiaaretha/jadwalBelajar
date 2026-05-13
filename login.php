@@ -12,12 +12,13 @@
             $data = mysqli_fetch_assoc($cek);
             $_SESSION['username'] = $data['username'];
             $_SESSION['id'] = $data['id'];
+            // $_SESSION['is_login'] = true;
             header("Location: dashboard.php");
             exit;
         }else{
             $error = "Username atau password salah!";
         }
-}
+    }
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +142,6 @@
             </form>
         </div>
     </div>
-
     <footer>
         <p>© 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032</p>
     </footer>
