@@ -41,7 +41,7 @@ if(isset($_POST['regis'])){
             background-image: url('background2.gif');
             background-size: cover;
             background-position: center;
-            background-repeat: flex;
+            background-repeat: no-repeat;
             flex-direction: column;
         }
         .navbar{
