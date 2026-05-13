@@ -137,7 +137,7 @@ if(isset($_POST['regis'])){
                     <input type="text" name="username" class="form-control" placeholder="Username" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" name="passoword" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <button type="submit" name="regis" class="btn btn-warning w-100 btn-register">Daftar</button>
             </form>
