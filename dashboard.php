@@ -155,9 +155,9 @@
 
             <form method="POST">
                 <div class="row">
-                    <!-- Mata Pelajaran -->
+                    <!-- Mata Kuliah -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                        <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran" required>
                     </div>
 
                     <!-- Hari -->
@@ -174,12 +174,12 @@
 
                     <!-- Jam Mulai -->
                     <div class="col-md-2 mb-3">
-                        <input type="time" name="jam_mulai" class="form-control">
+                        <input type="time" name="jam_mulai" class="form-control" required>
                     </div>
 
                     <!-- Jam Selesai -->
                     <div class="col-md-2 mb-3">
-                        <input type="time" name="jam_selesai" class="form-control">
+                        <input type="time" name="jam_selesai" class="form-control" required>
                     </div>
 
                     <!-- Catatan -->
