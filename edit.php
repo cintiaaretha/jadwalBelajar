@@ -168,7 +168,7 @@
                         <option value="Selasa" <?= ($data['hari']=='Selasa') ? 'selected' : ''; ?>>Selasa</option>
                         <option value="Rabu" <?= ($data['hari']=='Rabu') ? 'selected' : ''; ?>>Rabu</option>
                         <option value="Kamis" <?= ($data['hari']=='Kamis') ? 'selected' : ''; ?>>Kamis</option>
-                        <option value="Jum" <?= ($data['hari']=='Jumat') ? 'selected' : ''; ?>>Jumat</option>
+                        <option value="Jumat" <?= ($data['hari']=='Jumat') ? 'selected' : ''; ?>>Jumat</option>
                     </select>
                 </div>
 
