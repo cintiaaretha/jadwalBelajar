@@ -12,7 +12,6 @@
             $data = mysqli_fetch_assoc($cek);
             $_SESSION['username'] = $data['username'];
             $_SESSION['id'] = $data['id'];
-            // $_SESSION['is_login'] = true;
             header("Location: dashboard.php");
             exit;
         }else{
