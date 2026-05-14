@@ -9,13 +9,13 @@
 
     if(isset($_POST['tambah'])){
         $user_id = $_SESSION['id'];
-        $mapel = $_POST['mapel'];
+        $matkul = $_POST['matkul'];
         $hari = $_POST['hari'];
         $jam_mulai = $_POST['jam_mulai'];
         $jam_selesai = $_POST['jam_selesai'];
         $catatan = $_POST['catatan'];
 
-        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, mapel, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$mapel','$hari','$jam_mulai','$jam_selesai','$catatan')");
+        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, matkul, hari, jam_mulai, jam_selesai, catatan) VALUES ('$user_id','$matkul','$hari','$jam_mulai','$jam_selesai','$catatan')");
 
         if($query){
             echo "<script>alert('Data berhasil ditambahkan!'); window.location='dashboard.php';</script>";
@@ -157,7 +157,7 @@
                 <div class="row">
                     <!-- Mata Kuliah -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran" required>
+                        <input type="text" name="matkul" class="form-control" placeholder="Mata Kuliah" required>
                     </div>
 
                     <!-- Hari -->
@@ -206,7 +206,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Mata Pelajaran</th>
+                            <th>Mata Kuliah</th>
                             <th>Hari</th>
                             <th>Mulai</th>
                             <th>Selesai</th>
@@ -224,7 +224,7 @@
 
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $data['mapel']; ?></td>
+                            <td><?php echo $data['matkul']; ?></td>
                             <td><?php echo $data['hari']; ?></td>
                             <td><?php echo $data['jam_mulai']; ?></td>
                             <td><?php echo $data['jam_selesai']; ?></td>
