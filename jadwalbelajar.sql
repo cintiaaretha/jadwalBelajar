@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `jadwal` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `mapel` varchar(100) DEFAULT NULL,
+  `matkul` varchar(100) DEFAULT NULL,
   `hari` varchar(20) DEFAULT NULL,
   `jam_mulai` time DEFAULT NULL,
   `jam_selesai` time DEFAULT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `jadwal` (
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`id`, `user_id`, `mapel`, `hari`, `jam_mulai`, `jam_selesai`, `catatan`) VALUES
+INSERT INTO `jadwal` (`id`, `user_id`, `matkul`, `hari`, `jam_mulai`, `jam_selesai`, `catatan`) VALUES
 (1, 1, 'Pengantar Bisnis', 'Senin', '08:00:00', '09:30:00', 'Memahami konsep dasar bisnis'),
 (2, 1, 'Kalkulus', 'Rabu', '10:00:00', '11:30:00', 'Latihan turunan dan integral'),
 (3, 2, 'Algoritma dan Struktur Data', 'Selasa', '12:30:00', '14:00:00', 'Belajar array dan linked list'),

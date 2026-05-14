@@ -6,14 +6,14 @@
     $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM jadwal WHERE id='$id'"));
 
     if(isset($_POST['update'])){
-        $mapel = $_POST['mapel'];
+        $matkul = $_POST['matkul'];
         $hari = $_POST['hari'];
         $jam_mulai = $_POST['jam_mulai'];
         $jam_selesai = $_POST['jam_selesai'];
         $catatan = $_POST['catatan'];
 
         mysqli_query($koneksi, "UPDATE jadwal SET
-            mapel='$mapel',
+            matkul='$matkul',
             hari='$hari',
             jam_mulai='$jam_mulai',
             jam_selesai='$jam_selesai',
@@ -157,8 +157,8 @@
 
             <form method="POST">
                 <div class="mb-3">
-                    <label class="form-label">Mata Pelajaran</label>
-                    <input type="text" name="mapel" class="form-control" value="<?= $data['mapel']; ?>" placeholder="Masukkan mata pelajaran" required>
+                    <label class="form-label">Mata Kuliah</label>
+                    <input type="text" name="makul" class="form-control" value="<?= $data['mapel']; ?>" placeholder="Masukkan mata pelajaran" required>
                 </div>
 
                 <div class="mb-3">
