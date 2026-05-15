@@ -3,21 +3,21 @@
     include 'koneksi.php';
 
     $id = $_GET['id'];
-    $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM jadwal WHERE id='$id'"));
+    $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tugas WHERE id='$id'"));
 
     if(isset($_POST['update'])){
-        $matkul = $_POST['matkul'];
-        $hari = $_POST['hari'];
-        $jam_mulai = $_POST['jam_mulai'];
-        $jam_selesai = $_POST['jam_selesai'];
+        $jadwal_id = $_POST['jadwal_id'];
+        $nama_tugas = $_POST['nama_tugas'];
+        $deadline = $_POST['deadline'];
         $catatan = $_POST['catatan'];
+        $status = $_POST['status'];
 
         mysqli_query($koneksi, "UPDATE jadwal SET
-            matkul='$matkul',
-            hari='$hari',
-            jam_mulai='$jam_mulai',
-            jam_selesai='$jam_selesai',
-            catatan='$catatan'
+            jadwal_id='$jadwal_id',
+            nama_tugas='$nama_tugas',
+            deadline='$deadline',
+            catatan='$catatan',
+            status='$status'
             WHERE id='$id'
         ");
 
@@ -155,37 +155,34 @@
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">Mata Kuliah</label>
-                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata pelajaran" required>
+                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata kuliah" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Hari</label>
-                    <select name="hari" class="form-control" required>
-                        <option value="Senin" <?= ($data['hari']=='Senin') ? 'selected' : ''; ?>>Senin</option>
-                        <option value="Selasa" <?= ($data['hari']=='Selasa') ? 'selected' : ''; ?>>Selasa</option>
-                        <option value="Rabu" <?= ($data['hari']=='Rabu') ? 'selected' : ''; ?>>Rabu</option>
-                        <option value="Kamis" <?= ($data['hari']=='Kamis') ? 'selected' : ''; ?>>Kamis</option>
-                        <option value="Jumat" <?= ($data['hari']=='Jumat') ? 'selected' : ''; ?>>Jumat</option>
+                    <label class="form-label">Nama Tugas</label>
+                    <input type="text" name="nama_tugas" class="form-control" placeholder="Masukkan nama tugas"  required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Deadline</label>
+                    <input type="date" name="deadline" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Catatan</label>
+                    <input type="text" name="catatan" class="form-control" placeholder="Masukkan catatan tugas">
+                </div>
+                   
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-control">
+                        <option value="Belum"<?= ($data['status']=='Belum') ? 'selected' : ''; ?>>Belum</option>
+                        <option value="Selesai"<?= ($data['status']=='Selesai') ? 'selected' : ''; ?>>Selesai</option>
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Jam Mulai</label>
-                    <input type="time" name="jam_mulai" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Jam Selesai</label>
-                    <input type="time" name="jam_selesai" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Catatan</label>
-                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"></textarea>
-                </div>
-
                 <button type="submit" name="update" class="btn btn-warning w-100 btn-custom">
-                    Update Jadwal
+                    Update Tugas
                 </button>
             </form>
         </div>

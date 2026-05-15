@@ -38,13 +38,7 @@
             $jadwal_id = "NULL";
         }
 
-        $queryTugas = mysqli_query($koneksi,
-        "INSERT INTO tugas
-        (user_id, jadwal_id, nama_tugas, deadline, catatan, status)
-
-        VALUES
-        ('$user_id', $jadwal_id, '$nama_tugas',
-        '$deadline', '$catatan', '$status')");
+        $queryTugas = mysqli_query($koneksi, "INSERT INTO tugas (user_id, jadwal_id, nama_tugas, deadline, catatan, status) VALUES ('$user_id', $jadwal_id, '$nama_tugas', '$deadline', '$catatan', '$status')");
 
         if($queryTugas){
             echo "<script>
@@ -200,21 +194,14 @@
                         <input type="time" name="jam_selesai" class="form-control" required>
                     </div>
 
-                    
+                    <!-- Ruangan -->
                     <div class="col-md-2 mb-3">
-                        <input type="text"
-                        name="ruangan"
-                        class="form-control"
-                        placeholder="Ruangan"
-                        required>
+                        <input type="text" name="ruangan" class="form-control" placeholder="Ruangan" required>
                     </div>
 
+                    <!-- Dosen -->
                     <div class="col-md-1 mb-3">
-                        <input type="text"
-                        name="dosen"
-                        class="form-control"
-                        placeholder="Dosen"
-                        required>
+                        <input type="text" name="dosen" class="form-control" placeholder="Dosen" required>
                     </div>
 
                     <!-- Button -->
@@ -267,7 +254,7 @@
                                     Edit
                                 </a>
 
-                                <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus jadwal ini?')">
+                                <a href="hapusJadwal.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus jadwal ini?')">
                                     Hapus
                                 </a>
                             </td>
@@ -287,18 +274,14 @@
                 <div class="row">
                     <!-- MATKUL -->
                     <div class="col-md-2 mb-3">
-                        <select name="jadwal_id"
-                        class="form-control">
+                        <select name="jadwal_id" class="form-control">
                             <option value=""> Pilih Matkul</option>
                             <?php
                                 $id_user = $_SESSION['id'];
-                                $jadwal = mysqli_query($koneksi,
-                                "SELECT * FROM jadwal
-                                WHERE user_id='$id_user'");
-                                while($j = mysqli_fetch_assoc($jadwal)){
+                                $jadwal = mysqli_query($koneksi, "SELECT * FROM jadwal WHERE user_id='$id_user'"); while($data = mysqli_fetch_assoc($jadwal)){
                             ?>
-                            <option value="<?php echo $j['id']; ?>">
-                                <?php echo $j['matkul']; ?>
+                            <option value="<?php echo $data['id']; ?>">
+                                <?php echo $data['matkul']; ?>
                             </option>
                             <?php } ?>
                         </select>
@@ -354,29 +337,17 @@
                 <tbody>
                 <?php
                 $no = 1;
-                $queryTugas = mysqli_query($koneksi,
-                    "SELECT tugas.*, jadwal.matkul
-                    FROM tugas
-                    LEFT JOIN jadwal
-                    ON tugas.jadwal_id = jadwal.id
-                    WHERE tugas.user_id='$id_user'"
-                );
-                while ($t = mysqli_fetch_assoc($queryTugas)) {
+                $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
+                while ($data = mysqli_fetch_assoc($queryTugas)) {
                 ?>
                     <tr>
                         <td><?php echo $no++; ?></td>
+                        <td><?php echo $data['matkul'] ? $data['matkul']: '-';?></td>
+                        <td><?php echo $data['nama_tugas']; ?></td>
+                        <td><?php echo $data['deadline']; ?></td>
+                        <td><?php echo $data['catatan']; ?></td>
                         <td>
-                            <?php
-                            echo $t['matkul']
-                            ? $t['matkul']
-                            : '-';
-                            ?>
-                        </td>
-                        <td><?php echo $t['nama_tugas']; ?></td>
-                        <td><?php echo $t['deadline']; ?></td>
-                        <td><?php echo $t['catatan']; ?></td>
-                        <td>
-                            <?php if ($t['status'] == 'Selesai') { ?>
+                            <?php if ($data['status'] == 'Selesai') { ?>
                                 <span class="badge bg-success">
                                     Selesai
                                 </span>
@@ -387,13 +358,10 @@
                             <?php } ?>
                         </td>
                         <td>
-                            <a href="edit_tugas.php?id=<?php echo $t['id']; ?>"
-                            class="btn btn-warning btn-sm">
+                            <a href="editTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">
                                 Edit
                             </a>
-                            <a href="hapus_tugas.php?id=<?php echo $t['id']; ?>"
-                            class="btn btn-danger btn-sm"
-                            onclick="return confirm('Yakin mau hapus tugas ini?')">
+                            <a href="hapusTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus tugas ini?')">
                                 Hapus
                             </a>
                         </td>

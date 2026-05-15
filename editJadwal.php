@@ -10,14 +10,16 @@
         $hari = $_POST['hari'];
         $jam_mulai = $_POST['jam_mulai'];
         $jam_selesai = $_POST['jam_selesai'];
-        $catatan = $_POST['catatan'];
+        $ruangan = $_POST['ruangan'];
+        $dosen = $_POST['dosen'];
 
         mysqli_query($koneksi, "UPDATE jadwal SET
             matkul='$matkul',
             hari='$hari',
             jam_mulai='$jam_mulai',
             jam_selesai='$jam_selesai',
-            catatan='$catatan'
+            ruangan='$ruangan'
+            dosen=$dosen
             WHERE id='$id'
         ");
 
@@ -180,8 +182,13 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Catatan</label>
-                    <textarea name="catatan" class="form-control" placeholder="Tambahkan catatan belajar" rows="4"></textarea>
+                    <label class="form-label">Ruangan</label>
+                    <input type="text" name="ruangan" class="form-control" placeholder="Masukkan ruangan" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nama Dosen</label>
+                    <input type="text" name="dosen" class="form-control" placeholder="Masukkan nama dosen" required>
                 </div>
 
                 <button type="submit" name="update" class="btn btn-warning w-100 btn-custom">
