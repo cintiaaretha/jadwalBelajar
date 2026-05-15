@@ -75,7 +75,9 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        position: relative;
     }
+    
     .navbar {
         background: linear-gradient(135deg, #dc02a2, #df9f30);
     }
@@ -92,7 +94,6 @@
     .main-container{
         flex: 1;
         padding: 40px 20px;
-        min-height: 80vh;
     }
 
     .header{
@@ -104,7 +105,7 @@
         margin-bottom: 30px;
     }
 
-    .header h2{
+    .header h1{
         font-weight: bold;
     }
 
@@ -113,21 +114,27 @@
         border-radius: 20px;
     }
 
-    .form-control{
-        border-radius: 10px;
-        padding: 10px;
-    }
     
-    .table{
-        overflow: hidden;
-        border-radius: 15px;
-    }
 
-    footer {
+    .table thead{
         background: linear-gradient(135deg, #dc02a2, #df9f30);
         color: white;
-        text-align: center;
+    }
+
+    .table th{
+        border: none;
         padding: 15px;
+    }
+
+    .table td{
+        vertical-align: middle;
+        padding: 12px;
+    }
+
+    .badge{
+        padding: 8px 14px;
+        border-radius: 10px;
+        font-size: 0.9rem;
     }
 </style>
 
@@ -174,12 +181,12 @@
             <form method="POST">
                 <div class="row">
                     <!-- Mata Kuliah -->
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-2 mb-2">
                         <input type="text" name="matkul" class="form-control" placeholder="Mata Kuliah" required>
                     </div>
 
                     <!-- Hari -->
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-2 mb-2">
                         <select name="hari" class="form-control" required>
                             <option value="" selected disabled>Pilih Hari</option>
                             <option value="Senin">Senin</option>
@@ -206,14 +213,14 @@
                     </div>
 
                     <!-- Dosen -->
-                    <div class="col-md-1 mb-3">
+                    <div class="col-md-2 mb-3">
                         <input type="text" name="dosen" class="form-control" placeholder="Dosen" required>
                     </div>
-
+                    
                     <!-- Button -->
-                    <div class="col-md-1 mb-3">
+                    <div class="col-md-2 mb-3" style="text-align: right;">
                         <button type="submit" name="tambah_jadwal" class="btn btn-warning w-100 btn-custom">
-                            +
+                            Tambah Jadwal
                         </button>
                     </div>
                 </div>
@@ -257,11 +264,11 @@
 
                             <td>
                                 <a href="editJadwal.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">
-                                    Edit
+                                    <i class="bi bi-pencil-square"></i>
                                 </a>
 
                                 <a href="hapusJadwal.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus jadwal ini?')">
-                                    Hapus
+                                    <i class="bi bi-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -271,7 +278,9 @@
             </div>
         </div>
 
-    <!-- Form Tambah Tugas -->
+<br>
+
+        <!-- Form Tambah Tugas -->
         <div class="card p-4 mb-4 shadow-lg">
             <h4 class="mb-4 text-center"> Tambah Tugas </h4>
 
@@ -301,7 +310,7 @@
                         <input type="date" name="deadline" class="form-control" required>
                     </div>
                     <!-- CATATAN -->
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-2 mb-2">
                         <input type="text" name="catatan" class="form-control" placeholder="Catatan tugas">
                     </div>
                     <!-- STATUS -->
@@ -312,62 +321,63 @@
                         </select>
                     </div>
                     <!-- BUTTON -->
-                    <div class="col-md-1 mb-3">
+                    <div class="col-md-2 mb-3">
                         <button type="submit" name="tambah_tugas" class="btn btn-warning w-100 btn-custom">
-                            +
+                            Tambah Tugas
                         </button>
                     </div>
                 </div>
             </form>
         </div>
 
-    <!-- TABLE TUGAS -->
-<div class="card p-4 shadow-lg">
-    <h4 class="mb-4 text-center">Daftar Tugas</h4>
+        <!-- TABLE TUGAS -->
+        <div class="card p-4 shadow-lg">
+            <h4 class="mb-4 text-center">Daftar Tugas</h4>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover text-center align-middle">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Mata Kuliah</th>
-                    <th>Nama Tugas</th>
-                    <th>Deadline</th>
-                    <th>Catatan</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-            $no = 1;
-            $id_user = $_SESSION['id'];
-            $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
-            while ($data = mysqli_fetch_assoc($queryTugas)) {
-            ?>
-                <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo $data['matkul'] ? $data['matkul'] : '-'; ?></td>
-                    <td><?php echo $data['nama_tugas']; ?></td>
-                    <td><?php echo $data['deadline']; ?></td>
-                    <td><?php echo $data['catatan']; ?></td>
-                    <td>
-                        <?php if ($data['status'] == 'Selesai') { ?>
-                            <span class="badge bg-success">Selesai</span>
-                        <?php } else { ?>
-                            <span class="badge bg-danger">Belum</span>
-                        <?php } ?>
-                    </td>
-                    <td>
-                        <a href="editTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="hapusTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus tugas ini?')">Hapus</a>
-                    </td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center align-middle">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Mata Kuliah</th>
+                            <th>Nama Tugas</th>
+                            <th>Deadline</th>
+                            <th>Catatan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $no = 1;
+                    $id_user = $_SESSION['id'];
+                    $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
+                    while ($data = mysqli_fetch_assoc($queryTugas)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $data['matkul'] ? $data['matkul'] : '-'; ?></td>
+                            <td><?php echo $data['nama_tugas']; ?></td>
+                            <td><?php echo $data['deadline']; ?></td>
+                            <td><?php echo $data['catatan']; ?></td>
+                            <td>
+                                <?php if ($data['status'] == 'Selesai') { ?>
+                                    <span class="badge bg-success">Selesai</span>
+                                <?php } else { ?>
+                                    <span class="badge bg-danger">Belum</span>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <a href="editTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <a href="hapusTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus tugas ini?')"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
 
     <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30);">
       <div class="text-center p-3" style="color: whitesmoke;">
