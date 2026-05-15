@@ -6,15 +6,25 @@ $error = '';
 $berhasil = '';
 
 if(isset($_POST['regis'])){
-    $username = $_POST['username'];
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    $cek = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE username = '$username'");
+    $cek_nama = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE nama = '$nama'");
+    $cek_email = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE email = '$email'");
 
-    if(mysqli_num_rows($cek) > 0){
-        $error = "Username suda terdaftar!";
-    } else {
-        $query = "INSERT INTO pengguna (username, password) VALUES ('$username', '$password')";
+    if(mysqli_num_rows($cek_nama) > 0){
+        $error = "Nama sudah terdaftar!";
+    }
+    else if(mysqli_num_rows($cek_email) > 0){
+        $error = "Email sudah terdaftar!";
+    }
+    else if($password != $confirm_password){
+        $error = "Password dan Konfirmasi Password tidak cocok!";
+    }
+    else {
+        $query = "INSERT INTO pengguna (nama, email, password) VALUES ('$nama', '$email', '$password')";
         if(mysqli_query($koneksi, $query)){
             $berhasil = "Pendaftaran berhasil! Silahkan login.";
         } else {
@@ -123,10 +133,16 @@ if(isset($_POST['regis'])){
 
             <form action="regis.php" method="POST">
                 <div class="mb-3">
-                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
                     <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="confirm_password" class="form-control" placeholder="Konfirmasi Password" required>
                 </div>
                 <button type="submit" name="regis" class="btn btn-warning w-100 btn-register">Daftar</button>
             </form>

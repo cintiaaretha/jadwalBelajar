@@ -3,19 +3,19 @@
     include'koneksi.php';
 
     if(isset($_POST['login'])){
-        $username = $_POST['username'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $cek = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
+        $cek = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE email='$email' AND password='$password'");
 
         if(mysqli_num_rows($cek) > 0){
             $data = mysqli_fetch_assoc($cek);
-            $_SESSION['username'] = $data['username'];
+            $_SESSION['nama'] = $data['nama'];
             $_SESSION['id'] = $data['id'];
             header("Location: dashboard.php");
             exit;
         }else{
-            $error = "Username atau password salah!";
+            $error = "Email atau password salah!";
         }
     }
 ?>
@@ -119,7 +119,7 @@
 
             <form method="POST">
                 <div class="mb-3">
-                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
 
                 <div class="mb-3">
