@@ -146,7 +146,7 @@ if(isset($_POST['regis'])){
                 </div>
                 <button type="submit" name="regis" class="btn btn-warning w-100 btn-register">Daftar</button>
             </form>
-            <br><a class="text-center" href="login.php">Sudah punya akun? Login sekarang</a>
+            <br><a class="text-center" href="login.php">Sudah punya akun? Login sekarang!</a>
         </div>
     </div>
 
