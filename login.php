@@ -1,23 +1,24 @@
 <?php 
-    session_start();
-    include'koneksi.php';
+session_start();
+include 'koneksi.php';
 
-    if(isset($_POST['login'])){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+if(isset($_POST['login'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        $cek = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE email='$email' AND password='$password'");
+    $cek = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE email='$email' AND password='$password'");
 
-        if(mysqli_num_rows($cek) > 0){
-            $data = mysqli_fetch_assoc($cek);
-            $_SESSION['nama'] = $data['nama'];
-            $_SESSION['id'] = $data['id'];
-            header("Location: dashboard.php");
-            exit;
-        }else{
-            $error = "Email atau password salah!";
-        }
+    // SESUDAH (BENAR)
+    if(mysqli_num_rows($cek) > 0){
+        $data = mysqli_fetch_assoc($cek);
+        $_SESSION['nama'] = $data['nama'];
+        $_SESSION['id'] = $data['id'];
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        $error = "Email atau password salah!";
     }
+}
 ?>
 
 <!DOCTYPE html>

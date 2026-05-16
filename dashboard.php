@@ -2,7 +2,7 @@
     session_start();
     include 'koneksi.php';
 
-    if(!isset($_SESSION['username'])){
+    if(!isset($_SESSION['nama'])){
         header("Location: login.php");
         exit;
     }
@@ -128,7 +128,7 @@
             <h1>Jadwal Belajar</h1>
             <p class="mb-0">
                 Selamat datang,
-                <b><?php echo $_SESSION['username']; ?></b>
+                <b><?php echo $_SESSION['nama']; ?></b>
             </p>
 
         </div>
