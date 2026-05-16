@@ -211,8 +211,8 @@
                     
                     <!-- Button -->
                     <div class="col-md-12">
-                        <button type="submit" name="tambah_tugas" class="btn btn-warning btn-custom w-100 py-2">
-                            <i class="bi bi-plus-lg"></i> Tambah Tugas
+                        <button type="submit" name="tambah_jadwal" class="btn btn-warning btn-custom w-100 py-2">
+                            <i class="bi bi-plus-lg"></i> Tambah Jadwal
                         </button>
                     </div>
                 </div>

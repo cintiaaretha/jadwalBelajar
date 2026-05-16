@@ -6,18 +6,12 @@ $id = $_GET['id'];
 $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tugas WHERE id='$id'"));
 
 if(isset($_POST['update'])){
-    if($_POST['jadwal_id'] == ""){
-        $jadwal_id = "NULL";
-    } else {
-        $jadwal_id = $_POST['jadwal_id'];
-    }
     $nama_tugas = $_POST['nama_tugas'];
     $deadline = $_POST['deadline'];
     $catatan = $_POST['catatan'];
     $status = $_POST['status'];
 
     $update = mysqli_query($koneksi, "UPDATE tugas SET
-        jadwal_id='$jadwal_id',
         nama_tugas='$nama_tugas',
         deadline='$deadline',
         catatan='$catatan',
