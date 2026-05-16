@@ -1,29 +1,31 @@
 <?php
-    session_start();
-    include 'koneksi.php';
+session_start();
+include 'koneksi.php';
 
-    $id = $_GET['id'];
-    $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tugas WHERE id='$id'"));
+$id = $_GET['id'];
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tugas WHERE id='$id'"));
 
-    if(isset($_POST['update'])){
-        $jadwal_id = $_POST['jadwal_id'];
-        $nama_tugas = $_POST['nama_tugas'];
-        $deadline = $_POST['deadline'];
-        $catatan = $_POST['catatan'];
-        $status = $_POST['status'];
+if(isset($_POST['update'])){
+    $jadwal_id = $_POST['jadwal_id'];
+    $nama_tugas = $_POST['nama_tugas'];
+    $deadline = $_POST['deadline'];
+    $catatan = $_POST['catatan'];
+    $status = $_POST['status'];
 
-        mysqli_query($koneksi, "UPDATE jadwal SET
-            jadwal_id='$jadwal_id',
-            nama_tugas='$nama_tugas',
-            deadline='$deadline',
-            catatan='$catatan',
-            status='$status'
-            WHERE id='$id'
-        ");
+    $update = mysqli_query($koneksi, "UPDATE tugas SET
+        jadwal_id='$jadwal_id',
+        nama_tugas='$nama_tugas',
+        deadline='$deadline',
+        catatan='$catatan',
+        status='$status'
+        WHERE id='$id'
+    ");
 
+    if($update){
         header("Location: dashboard.php");
         exit;
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedulio: Edit</title>
+    <title>Schedulio: Edit Tugas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/book.png" />
@@ -128,7 +130,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Edit Jadwal</a>
+                        <a class="nav-link active" href="#">Edit Tugas</a>
                     </li>
 
                     <li class="nav-item">
@@ -144,13 +146,13 @@
         <div class="header">
             <h2>Edit Jadwal</h2>
             <p class="mb-0">
-                Sesuaikan jadwalmu yang sesungguhnya.
+                Sesuaikan tugas yang telah diberikan.
             </p>
         </div>
 
         <!-- Card Edit -->
         <div class="card p-4 shadow-lg mx-auto edit-card">
-            <h4 class="mb-2 text-center">Form Edit Jadwal</h4>
+            <h4 class="mb-2 text-center">Form Edit Tugas</h4>
 
             <form method="POST">
             <!-- Tambahkan dropdown pilih mata kuliah -->
@@ -169,17 +171,15 @@
 
                 <div class="mb-3">
                     <label class="form-label">Nama Tugas</label>
-                    <input type="text" name="nama_tugas" class="form-control" placeholder="Masukkan nama tugas"  required>
+                    <input type="text" name="nama_tugas" class="form-control" placeholder="Masukkan nama tugas" value="<?= $data['nama_tugas']; ?>" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Deadline</label>
-                    <input type="date" name="deadline" class="form-control" required>
+                    <input type="date" name="deadline" class="form-control" value="<?= $data['deadline']; ?>" required>
                 </div>
                 
                 <div class="mb-3">
-                    <label class="form-label">Catatan</label>
-                    <input type="text" name="catatan" class="form-control" placeholder="Masukkan catatan tugas">
+                    <input type="text" name="catatan" class="form-control" placeholder="Masukkan catatan tugas" value="<?= $data['catatan']; ?>">
                 </div>
                    
                 <div class="mb-3">

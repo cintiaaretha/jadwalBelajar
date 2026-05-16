@@ -62,68 +62,74 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/book.png" />
-   <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body{
-            background-image: url('img/background.gif');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<style>
+    html, body{
+        height: 100%;
+        margin: 0;
+    }
 
-        .navbar {
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-        }
+    body{
+        background-image: url('img/background.gif');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .navbar {
+        background: linear-gradient(135deg, #dc02a2, #df9f30);
+    }
 
-        .navbar-brand {
-            font-weight: bold;
-            color: white;
-        }
+    .navbar-brand {
+        font-weight: bold;
+        color: white;
+    }
 
-        .nav-link {
-            color: white;
-        }
+    .nav-link {
+        color: white;
+    }
 
-        .main-container{
-            padding: 40px 20px;
-        }
+    .main-container{
+        flex: 1;
+        padding: 40px 20px;
+        min-height: 80vh;
+    }
 
-        .header{
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .header{
+        background: linear-gradient(135deg, #dc02a2, #df9f30);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-        .header h2{
-            font-weight: bold;
-        }
+    .header h2{
+        font-weight: bold;
+    }
 
-        .card{
-            border: none;
-            border-radius: 20px;
-        }
+    .card{
+        border: none;
+        border-radius: 20px;
+    }
 
-        .form-control{
-            border-radius: 10px;
-            padding: 10px;
-        }
-        
-        .table{
-            overflow: hidden;
-            border-radius: 15px;
-        }
+    .form-control{
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    .table{
+        overflow: hidden;
+        border-radius: 15px;
+    }
 
-    </style>
+    footer {
+        background: linear-gradient(135deg, #dc02a2, #df9f30);
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }
+</style>
 
 </head>
 <body>
@@ -264,7 +270,6 @@
                 </table>
             </div>
         </div>
-    </div>
 
     <!-- Form Tambah Tugas -->
         <div class="card p-4 mb-4 shadow-lg">
@@ -317,62 +322,54 @@
         </div>
 
     <!-- TABLE TUGAS -->
-    <div class="card p-4 shadow-lg">
-        <h4 class="mb-4 text-center"> Daftar Tugas </h4>
+<div class="card p-4 shadow-lg">
+    <h4 class="mb-4 text-center">Daftar Tugas</h4>
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover text-center align-middle">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Mata Kuliah</th>
-                        <th>Nama Tugas</th>
-                        <th>Deadline</th>
-                        <th>Catatan</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                <?php
-                $no = 1;
-                $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
-                while ($data = mysqli_fetch_assoc($queryTugas)) {
-                ?>
-                    <tr>
-                        <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['matkul'] ? $data['matkul']: '-';?></td>
-                        <td><?php echo $data['nama_tugas']; ?></td>
-                        <td><?php echo $data['deadline']; ?></td>
-                        <td><?php echo $data['catatan']; ?></td>
-                        <td>
-                            <?php if ($data['status'] == 'Selesai') { ?>
-                                <span class="badge bg-success">
-                                    Selesai
-                                </span>
-                            <?php } else { ?>
-                                <span class="badge bg-danger">
-                                    Belum
-                                </span>
-                            <?php } ?>
-                        </td>
-                        <td>
-                            <a href="editTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">
-                                Edit
-                            </a>
-                            <a href="hapusTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus tugas ini?')">
-                                Hapus
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Mata Kuliah</th>
+                    <th>Nama Tugas</th>
+                    <th>Deadline</th>
+                    <th>Catatan</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $no = 1;
+            $id_user = $_SESSION['id'];
+            $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
+            while ($data = mysqli_fetch_assoc($queryTugas)) {
+            ?>
+                <tr>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $data['matkul'] ? $data['matkul'] : '-'; ?></td>
+                    <td><?php echo $data['nama_tugas']; ?></td>
+                    <td><?php echo $data['deadline']; ?></td>
+                    <td><?php echo $data['catatan']; ?></td>
+                    <td>
+                        <?php if ($data['status'] == 'Selesai') { ?>
+                            <span class="badge bg-success">Selesai</span>
+                        <?php } else { ?>
+                            <span class="badge bg-danger">Belum</span>
+                        <?php } ?>
+                    </td>
+                    <td>
+                        <a href="editTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="hapusTugas.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin mau hapus tugas ini?')">Hapus</a>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30); margin-top:auto;">
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30);">
       <div class="text-center p-3" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

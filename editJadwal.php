@@ -19,7 +19,7 @@
             jam_mulai='$jam_mulai',
             jam_selesai='$jam_selesai',
             ruangan='$ruangan',
-            dosen='$dosen',
+            dosen='$dosen'
             WHERE id='$id'
         ");
 
