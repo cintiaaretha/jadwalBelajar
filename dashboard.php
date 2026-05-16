@@ -28,17 +28,12 @@
 
     if(isset($_POST['tambah_tugas'])){
         $user_id = $_SESSION['id'];
-        $jadwal_id = $_POST['jadwal_id'];
         $nama_tugas = $_POST['nama_tugas'];
         $deadline = $_POST['deadline'];
         $catatan = $_POST['catatan'];
         $status = $_POST['status'];
 
-        if($jadwal_id == ""){
-            $jadwal_id = "NULL";
-        }
-
-        $queryTugas = mysqli_query($koneksi, "INSERT INTO tugas (user_id, jadwal_id, nama_tugas, deadline, catatan, status) VALUES ('$user_id', $jadwal_id, '$nama_tugas', '$deadline', '$catatan', '$status')");
+        $queryTugas = mysqli_query($koneksi, "INSERT INTO tugas (user_id, nama_tugas, deadline, catatan, status) VALUES ('$user_id', '$nama_tugas', '$deadline', '$catatan', '$status')");
 
         if($queryTugas){
             echo "<script>
@@ -61,7 +56,7 @@
     <title>Schedulio: Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/x-icon" href="img/book.png" />
+    <link rel="icon" type="image/x-icon" href="img/kalender.png" />
  <style>
     body {
         background: url('img/bghome.jpeg') no-repeat center center fixed;
@@ -97,14 +92,7 @@
         outline: none;
         box-shadow: 0 0 5px rgba(20,10,126,0.3);
     }
-    .btn-warning, .btn-login, .btn-register, .btn-custom {
-        background-color: #161f70;
-        border: none;
-        color: white;
-    }
-    .btn-warning:hover, .btn-login:hover, .btn-register:hover, .btn-custom:hover {
-        background-color: #0e1340;
-    }
+    
     .main-container {
     padding: 40px 20px;
     }
@@ -290,27 +278,12 @@
 
             <form method="POST">
                 <div class="row">
-                    <!-- MATKUL -->
-                    <div class="col-md-3 mb-3">
-                        <select name="jadwal_id" class="form-control">
-                            <option value=""> Pilih Matkul</option>
-                            <?php
-                                $id_user = $_SESSION['id'];
-                                $jadwal = mysqli_query($koneksi, "SELECT * FROM jadwal WHERE user_id='$id_user'"); while($data = mysqli_fetch_assoc($jadwal)){
-                            ?>
-                            <option value="<?php echo $data['id']; ?>">
-                                <?php echo $data['matkul']; ?>
-                            </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
                     <!-- NAMA TUGAS -->
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-3 mb-3">
                         <input type="text" name="nama_tugas" class="form-control" placeholder="Nama Tugas"  required>
                     </div>
                     <!-- DEADLINE -->
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-3 mb-3">
                         <input type="date" name="deadline" class="form-control" required>
                     </div>
                     <!-- CATATAN -->
@@ -318,7 +291,7 @@
                         <input type="text" name="catatan" class="form-control" placeholder="Catatan tugas">
                     </div>
                     <!-- STATUS -->
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-3 mb-3">
                         <select name="status" class="form-control">
                             <option value="Belum"> Belum </option>
                             <option value="Selesai"> Selesai </option>
@@ -343,7 +316,6 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Mata Kuliah</th>
                             <th>Nama Tugas</th>
                             <th>Deadline</th>
                             <th>Catatan</th>
@@ -355,12 +327,11 @@
                     <?php
                     $no = 1;
                     $id_user = $_SESSION['id'];
-                    $queryTugas = mysqli_query($koneksi, "SELECT tugas.*, jadwal.matkul FROM tugas LEFT JOIN jadwal ON tugas.jadwal_id = jadwal.id WHERE tugas.user_id='$id_user'");
+                    $queryTugas = mysqli_query($koneksi, "SELECT * FROM tugas WHERE user_id='$id_user'");
                     while ($data = mysqli_fetch_assoc($queryTugas)) {
                     ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $data['matkul'] ? $data['matkul'] : '-'; ?></td>
                             <td><?php echo $data['nama_tugas']; ?></td>
                             <td><?php echo $data['deadline']; ?></td>
                             <td><?php echo $data['catatan']; ?></td>
@@ -383,7 +354,7 @@
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
+    <footer class="text-center text-lg-start">
       <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

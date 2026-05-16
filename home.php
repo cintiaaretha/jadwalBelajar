@@ -6,7 +6,7 @@
     <title>Schedulio: Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/x-icon" href="img/book.png" />
+    <link rel="icon" type="image/x-icon" href="img/kalender.png" />
     <style>
         body {
             background: url('img/bghome.jpeg') no-repeat center center fixed;
@@ -230,7 +230,7 @@
         </div>
     </section>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
+    <footer class="text-center text-lg-start">
       <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

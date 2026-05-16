@@ -6,7 +6,11 @@ $id = $_GET['id'];
 $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM tugas WHERE id='$id'"));
 
 if(isset($_POST['update'])){
-    $jadwal_id = $_POST['jadwal_id'];
+    if($_POST['jadwal_id'] == ""){
+        $jadwal_id = "NULL";
+    } else {
+        $jadwal_id = $_POST['jadwal_id'];
+    }
     $nama_tugas = $_POST['nama_tugas'];
     $deadline = $_POST['deadline'];
     $catatan = $_POST['catatan'];
@@ -36,7 +40,7 @@ if(isset($_POST['update'])){
     <title>Schedulio: Edit Tugas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/x-icon" href="img/book.png" />
+    <link rel="icon" type="image/x-icon" href="img/kalender.png" />
     <style>
     body {
         background: url('img/bghome.jpeg') no-repeat center center fixed;
@@ -72,14 +76,7 @@ if(isset($_POST['update'])){
         outline: none;
         box-shadow: 0 0 5px rgba(20,10,126,0.3);
     }
-    .btn-warning, .btn-login, .btn-register, .btn-custom {
-        background-color: #161f70;
-        border: none;
-        color: white;
-    }
-    .btn-warning:hover, .btn-login:hover, .btn-register:hover, .btn-custom:hover {
-        background-color: #0e1340;
-    }
+    
     .main-container {
     padding: 40px 20px;
     }
@@ -143,7 +140,7 @@ if(isset($_POST['update'])){
     <!-- Main -->
     <div class="container main-container">
         <div class="header">
-            <h2>Edit Jadwal</h2>
+            <h2>Edit Tugas</h2>
             <p class="mb-0">
                 Sesuaikan tugas yang telah diberikan.
             </p>
@@ -154,30 +151,18 @@ if(isset($_POST['update'])){
             <h4 class="mb-2 text-center">Form Edit Tugas</h4>
 
             <form method="POST">
-            <!-- Tambahkan dropdown pilih mata kuliah -->
-                <div class="mb-3">
-                    <label class="form-label">Mata Kuliah</label>
-                    <select name="jadwal_id" class="form-control" required>
-                        <?php
-                        $jadwal = mysqli_query($koneksi, "SELECT * FROM jadwal WHERE user_id='".$_SESSION['id']."'");
-                        while($j = mysqli_fetch_assoc($jadwal)){
-                            $selected = ($j['id'] == $data['jadwal_id']) ? 'selected' : '';
-                            echo "<option value='".$j['id']."' $selected>".$j['matkul']."</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-
                 <div class="mb-3">
                     <label class="form-label">Nama Tugas</label>
                     <input type="text" name="nama_tugas" class="form-control" placeholder="Masukkan nama tugas" value="<?= $data['nama_tugas']; ?>" required>
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Deadline</label>
                     <input type="date" name="deadline" class="form-control" value="<?= $data['deadline']; ?>" required>
                 </div>
                 
                 <div class="mb-3">
+                    <label class="form-label">Catatan</label>
                     <input type="text" name="catatan" class="form-control" placeholder="Masukkan catatan tugas" value="<?= $data['catatan']; ?>">
                 </div>
                    
@@ -196,7 +181,7 @@ if(isset($_POST['update'])){
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
+    <footer class="text-center text-lg-start">
       <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

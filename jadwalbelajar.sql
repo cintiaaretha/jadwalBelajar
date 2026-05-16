@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2026 at 11:47 AM
+-- Generation Time: May 16, 2026 at 09:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,7 +86,6 @@ INSERT INTO `pengguna` (`id`, `nama`, `email`, `password`) VALUES
 CREATE TABLE `tugas` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `jadwal_id` int(11) DEFAULT NULL,
   `nama_tugas` varchar(100) DEFAULT NULL,
   `deadline` date DEFAULT NULL,
   `catatan` text DEFAULT NULL,
@@ -97,15 +96,16 @@ CREATE TABLE `tugas` (
 -- Dumping data for table `tugas`
 --
 
-INSERT INTO `tugas` (`id`, `user_id`, `jadwal_id`, `nama_tugas`, `deadline`, `catatan`, `status`) VALUES
-(1, 1, 1, 'Tugas 10 Pengantar Bisnis', '2026-05-22', 'Materi: Manajemen Pemasaran.', 'Belum'),
-(2, 1, 2, 'Esai Bahasa Indonesia', '2026-05-20', 'Rangkum jurnal lalu buat esai dan upload ke Google Drive.', 'Selesai'),
-(3, 2, 3, 'Final Project Linked List', '2026-05-25', 'Buat program linked list menggunakan C++ lalu upload ke GitHub.', 'Belum'),
-(4, 2, 4, 'Tugas Statistika', '2026-05-24', 'Hitung mean, median, dan modus dari data survei mahasiswa.', 'Belum'),
-(5, 3, 5, 'Analisis Organisasi', '2026-05-27', 'Buat presentasi struktur organisasi perusahaan dalam format PPT.', 'Selesai'),
-(6, 3, 6, 'Karya Ilmiah', '2026-05-29', 'Buat karya ilmiah minimal 700 kata format PDF.', 'Belum'),
-(7, 4, 7, 'Latihan Responsi Web', '2026-05-15', 'Gabungkan PHP dengan HTML dan CSS untuk membuat halaman dinamis.', 'Belum'),
-(8, 5, 8, 'Analisis Sistem Informasi', '2026-05-22', 'Buat laporan mengenai penerapan sistem informasi dalam bisnis.', 'Belum');
+INSERT INTO `tugas` (`id`, `user_id`, `nama_tugas`, `deadline`, `catatan`, `status`) VALUES
+(1, 1, 'Tugas 10 Pengantar Bisnis', '2026-05-22', 'Materi: Manajemen Pemasaran.', 'Belum'),
+(2, 1, 'Esai Bahasa Indonesia', '2026-05-20', 'Rangkum jurnal lalu buat esai dan upload ke Google Drive.', 'Selesai'),
+(3, 2, 'Final Project Linked List', '2026-05-25', 'Buat program linked list menggunakan C++ lalu upload ke GitHub.', 'Belum'),
+(4, 2, 'Tugas Statistika', '2026-05-24', 'Hitung mean, median, dan modus dari data survei mahasiswa.', 'Belum'),
+(5, 3, 'Analisis Organisasi', '2026-05-27', 'Buat presentasi struktur organisasi perusahaan dalam format PPT.', 'Selesai'),
+(6, 3, 'Karya Ilmiah', '2026-05-29', 'Buat karya ilmiah minimal 700 kata format PDF.', 'Belum'),
+(7, 4, 'Latihan Responsi Web', '2026-05-15', 'Gabungkan PHP dengan HTML dan CSS untuk membuat halaman dinamis.', 'Belum'),
+(8, 5, 'Analisis Sistem Informasi', '2026-05-22', 'Buat laporan mengenai penerapan sistem informasi dalam bisnis.', 'Belum'),
+(10, 2, 'SI-ARAN', '2026-05-18', 'Cari tempat syuting', 'Belum');
 
 --
 -- Indexes for dumped tables
@@ -130,8 +130,7 @@ ALTER TABLE `pengguna`
 --
 ALTER TABLE `tugas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `jadwal_id` (`jadwal_id`);
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -153,7 +152,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -169,8 +168,7 @@ ALTER TABLE `jadwal`
 -- Constraints for table `tugas`
 --
 ALTER TABLE `tugas`
-  ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tugas_ibfk_2` FOREIGN KEY (`jadwal_id`) REFERENCES `jadwal` (`id`) ON DELETE SET NULL;
+  ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `pengguna` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

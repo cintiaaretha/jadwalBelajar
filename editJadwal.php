@@ -36,7 +36,7 @@
     <title>Schedulio: Edit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/x-icon" href="img/book.png" />
+    <link rel="icon" type="image/x-icon" href="img/kalender.png" />
 <style>
     body {
         background: url('img/bghome.jpeg') no-repeat center center fixed;
@@ -71,14 +71,6 @@
         border-color: #140a7e;
         outline: none;
         box-shadow: 0 0 5px rgba(20,10,126,0.3);
-    }
-    .btn-warning, .btn-login, .btn-register, .btn-custom {
-        background-color: #161f70;
-        border: none;
-        color: white;
-    }
-    .btn-warning:hover, .btn-login:hover, .btn-register:hover, .btn-custom:hover {
-        background-color: #0e1340;
     }
     .main-container {
     padding: 40px 20px;
@@ -197,7 +189,7 @@
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
+    <footer class="text-center text-lg-start">
       <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>
