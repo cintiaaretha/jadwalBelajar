@@ -153,9 +153,18 @@
             <h4 class="mb-2 text-center">Form Edit Jadwal</h4>
 
             <form method="POST">
+            <!-- Tambahkan dropdown pilih mata kuliah -->
                 <div class="mb-3">
                     <label class="form-label">Mata Kuliah</label>
-                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata kuliah" required>
+                    <select name="jadwal_id" class="form-control" required>
+                        <?php
+                        $jadwal = mysqli_query($koneksi, "SELECT * FROM jadwal WHERE user_id='".$_SESSION['id']."'");
+                        while($j = mysqli_fetch_assoc($jadwal)){
+                            $selected = ($j['id'] == $data['jadwal_id']) ? 'selected' : '';
+                            echo "<option value='".$j['id']."' $selected>".$j['matkul']."</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="mb-3">

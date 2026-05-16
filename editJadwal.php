@@ -18,8 +18,8 @@
             hari='$hari',
             jam_mulai='$jam_mulai',
             jam_selesai='$jam_selesai',
-            ruangan='$ruangan'
-            dosen=$dosen
+            ruangan='$ruangan',
+            dosen='$dosen',
             WHERE id='$id'
         ");
 
@@ -157,7 +157,7 @@
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">Mata Kuliah</label>
-                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata pelajaran" required>
+                    <input type="text" name="matkul" class="form-control" placeholder="Masukkan mata pelajaran" value="<?= $data['matkul']; ?>" required>
                 </div>
 
                 <div class="mb-3">
@@ -173,22 +173,22 @@
 
                 <div class="mb-3">
                     <label class="form-label">Jam Mulai</label>
-                    <input type="time" name="jam_mulai" class="form-control" required>
+                    <input type="time" name="jam_mulai" class="form-control" value="<?= $data['jam_mulai']; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Jam Selesai</label>
-                    <input type="time" name="jam_selesai" class="form-control" required>
+                    <input type="time" name="jam_selesai" class="form-control" value="<?= $data['jam_selesai']; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Ruangan</label>
-                    <input type="text" name="ruangan" class="form-control" placeholder="Masukkan ruangan" required>
+                    <input type="text" name="ruangan" class="form-control" placeholder="Masukkan ruangan" value="<?= $data['ruangan']; ?>" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Nama Dosen</label>
-                    <input type="text" name="dosen" class="form-control" placeholder="Masukkan nama dosen" required>
+                    <input type="text" name="dosen" class="form-control" placeholder="Masukkan nama dosen" value="<?= $data['dosen']; ?>" required>
                 </div>
 
                 <button type="submit" name="update" class="btn btn-warning w-100 btn-custom">

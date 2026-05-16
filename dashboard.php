@@ -17,7 +17,7 @@
         $dosen = $_POST['dosen'];
 
 
-        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, matkul, hari, jam_mulai, jam_selesai, ruangan, dosen) VALUES ('$user_id','$matkul','$hari','$jam_mulai','$jam_selesai','$ruangan, $dosen')");
+        $query = mysqli_query($koneksi, "INSERT INTO jadwal (user_id, matkul, hari, jam_mulai, jam_selesai, ruangan, dosen) VALUES ('$user_id','$matkul','$hari','$jam_mulai','$jam_selesai','$ruangan', '$dosen')");
 
         if($query){
             echo "<script>alert('Data berhasil ditambahkan!'); window.location='dashboard.php';</script>";
@@ -206,7 +206,7 @@
 
                     <!-- Button -->
                     <div class="col-md-1 mb-3">
-                        <button type="submit" name="tambah" class="btn btn-warning w-100 btn-custom">
+                        <button type="submit" name="tambah_jadwal" class="btn btn-warning w-100 btn-custom">
                             +
                         </button>
                     </div>
