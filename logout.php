@@ -1,6 +1,20 @@
 <?php
 session_start();
-session_destroy();
+if(isset($_GET['confirm'])){
+  session_destroy();
+  header("Location: login.php");
+  exit;
 
-header("Location: login.php");
-?>
+} else {
+  echo "
+    <script>
+      let yakin = confirm('Yakin ingin logout?');
+
+      if(yakin){
+        window.location='logout.php?confirm=yes';
+      } else {
+        window.location='user.php';
+      }
+    </script>
+  ";
+}
