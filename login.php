@@ -148,7 +148,7 @@ if(isset($_POST['login'])){
     </div>
 
     <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
-      <div class="text-center p-3" style="color: whitesmoke;">
+      <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>
     </footer>

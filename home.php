@@ -29,7 +29,13 @@
             font-weight: bold;
             color: white;
         }
-
+        footer {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+        }
         .nav-link {
             color: white;
         }
@@ -63,7 +69,6 @@
             font-weight: bold;
             color: #ccccdf;
         }
-
         .card {
             border: none;
             border-radius: 20px;
