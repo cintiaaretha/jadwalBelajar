@@ -9,13 +9,22 @@
     <link rel="icon" type="image/x-icon" href="img/book.png" />
     <style>
         body {
-            background-color: #fff5fb;
+            background: url('img/bghome.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgb(150, 158, 209);
+            padding-top: 70px;
         }
-
         .navbar {
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
+            background: linear-gradient(135deg, #140a7e, #8489cc);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-
+        .navbar.scrolled {
+            background: linear-gradient(135deg, #dc02a2, #df9f30);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
         .navbar-brand {
             font-weight: bold;
             color: white;
@@ -24,14 +33,19 @@
         .nav-link {
             color: white;
         }
-
         .hero {
             padding: 120px 20px;
             text-align: center;
-            background: url('img/background.gif');
+            background: url('img/bghome.jpeg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
             color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero .container {
+            width: 100%;
         }
 
         .hero h1 {
@@ -47,7 +61,7 @@
             text-align: center;
             margin-bottom: 50px;
             font-weight: bold;
-            color: #dc02a2;
+            color: #ccccdf;
         }
 
         .card {
@@ -57,7 +71,7 @@
 
         .feature-icon {
             font-size: 50px;
-            color: #dc02a2;
+            color: #161f70;
         }
 
         .logo-circle {
@@ -72,7 +86,7 @@
             align-items: center;
 
             font-size: 45px;
-            color: #dc02a2;
+            color: #161f70;
             margin-bottom: 20px;
         }
 
@@ -83,7 +97,7 @@
         }
 
         .about-text h3 {
-            color: #dc02a2;
+            color: #161f70;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -91,8 +105,16 @@
         .about-text p {
             font-size: 17px;
             line-height: 1.8;
+            color: #161f70;
+            text-align: justify;
         }
-
+        .about-section {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
     </style>
 </head>
 
@@ -146,13 +168,12 @@
 
     <!-- About Us -->
     <section class="container py-5" id="about">
-        <h2 class="section-title">About Us</h2>
-
+    <h2 class="section-title">About Us</h2>
+    <div class="about-section">
         <div class="row align-items-center justify-content-center g-5">
             <div class="col-md-5 text-center">
-                <img src="img/book.png" class="about-img">
+                <img src="img/kalender2.jpeg" class="about-img">
             </div>
-
             <div class="col-md-6 about-text">
                 <h3>Belajar Lebih Teratur</h3>
                 <p>
@@ -164,6 +185,7 @@
                 </p>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- Features -->
@@ -203,7 +225,7 @@
         </div>
     </section>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30)">
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
       <div class="text-center p-3" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

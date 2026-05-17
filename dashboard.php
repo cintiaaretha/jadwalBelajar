@@ -62,79 +62,83 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/book.png" />
-<style>
-    html, body{
-        height: 100%;
-        margin: 0;
-    }
-
-    body{
-        background-image: url('img/background.gif');
+ <style>
+    body {
+        background: url('img/bghome.jpeg') no-repeat center center fixed;
         background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        position: relative;
+        background-color: rgb(150, 158, 209);
+        padding-top: 70px;
     }
-    
     .navbar {
-        background: linear-gradient(135deg, #dc02a2, #df9f30);
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
     }
-
-    .navbar-brand {
+    .navbar-brand, .nav-link {
         font-weight: bold;
         color: white;
     }
-
-    .nav-link {
+    footer {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+    }
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+    .form-control:focus {
+        border-color: #140a7e;
+        outline: none;
+        box-shadow: 0 0 5px rgba(20,10,126,0.3);
+    }
+    .btn-warning, .btn-login, .btn-register, .btn-custom {
+        background-color: #161f70;
+        border: none;
         color: white;
     }
-
-    .main-container{
-        flex: 1;
-        padding: 40px 20px;
+    .btn-warning:hover, .btn-login:hover, .btn-register:hover, .btn-custom:hover {
+        background-color: #0e1340;
     }
-
-    .header{
-        background: linear-gradient(135deg, #dc02a2, #df9f30);
+    .main-container {
+    padding: 40px 20px;
+    }
+    .header {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
         color: white;
         padding: 30px;
         border-radius: 20px;
         text-align: center;
         margin-bottom: 30px;
     }
-
-    .header h1{
-        font-weight: bold;
-    }
-
-    .card{
-        border: none;
+    .header h1 { font-weight: bold; }
+    .card {
+        background: white;
         border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-
-    
-
-    .table thead{
-        background: linear-gradient(135deg, #dc02a2, #df9f30);
+    .table {
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    .table thead {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
         color: white;
     }
-
-    .table th{
-        border: none;
-        padding: 15px;
-    }
-
-    .table td{
-        vertical-align: middle;
+    .table th, .table td {
         padding: 12px;
+        vertical-align: middle;
     }
-
-    .badge{
+    .badge {
         padding: 8px 14px;
         border-radius: 10px;
-        font-size: 0.9rem;
     }
 </style>
 
@@ -379,7 +383,7 @@
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30);">
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
       <div class="text-center p-3" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>

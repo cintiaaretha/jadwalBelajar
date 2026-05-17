@@ -37,81 +37,80 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="img/book.png" />
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body{
-            min-height: 100vh;
-            background-image: url('img/background.gif');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-        }
-
-        .navbar{
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-        }
-
-        .navbar-brand{
-            font-weight: bold;
-            color: white !important;
-        }
-
-        .nav-link{
-            color: white !important;
-        }
-
-        .main-container{
-            padding: 40px 20px;
-        }
-
-        .header{
-            background: linear-gradient(135deg, #dc02a2, #df9f30);
-            color: white;
-            border-radius: 20px;
-            text-align: center;
-            margin: 0 auto 30px auto;
-            padding: 30px;
-            max-width: 750px;
-        }
-
-        .header h2{
-            font-weight: bold;
-        }
-
-        .card{
-            border: none;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(5px);
-        }
-
-       .edit-card{
-            max-width: 750px;
-            border-radius: 15px;
-        }
-
-        .form-control{
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        .form-control:focus{
-            border-color: #dc02a2;
-            box-shadow: 0 0 5px rgba(220,2,162,0.5);
-        }
-
-        .btn-custom{
-            border-radius: 10px;
-            font-weight: bold;
-        }
-    </style>
+<style>
+    body {
+        background: url('img/bghome.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgb(150, 158, 209);
+        padding-top: 70px;
+    }
+    .navbar {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar-brand, .nav-link {
+        font-weight: bold;
+        color: white;
+    }
+    footer {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+    }
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+    .form-control:focus {
+        border-color: #140a7e;
+        outline: none;
+        box-shadow: 0 0 5px rgba(20,10,126,0.3);
+    }
+    .btn-warning, .btn-login, .btn-register, .btn-custom {
+        background-color: #161f70;
+        border: none;
+        color: white;
+    }
+    .btn-warning:hover, .btn-login:hover, .btn-register:hover, .btn-custom:hover {
+        background-color: #0e1340;
+    }
+    .main-container {
+    padding: 40px 20px;
+    }
+    .header {
+        background: linear-gradient(135deg, #140a7e, #8489cc);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header h2 { font-weight: bold; }
+    .card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .edit-card {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+    .form-label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: #333;
+    }
+</style>
 </head>
 <body>
     <!-- Navbar -->
@@ -198,7 +197,7 @@
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg, #dc02a2, #df9f30)">
+    <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
       <div class="text-center p-3" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>
