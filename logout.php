@@ -13,7 +13,7 @@ if(isset($_GET['confirm'])){
       if(yakin){
         window.location='logout.php?confirm=yes';
       } else {
-        window.location='user.php';
+        window.location='dashboard.php';
       }
     </script>
   ";
