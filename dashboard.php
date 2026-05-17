@@ -222,9 +222,9 @@
                     </div>
                     
                     <!-- Button -->
-                    <div class="col-md-2 mb-3" style="text-align: right;">
-                        <button type="submit" name="tambah_jadwal" class="btn btn-warning w-100 btn-custom">
-                            Tambah Jadwal
+                    <div class="col-md-12">
+                        <button type="submit" name="tambah_tugas" class="btn btn-warning btn-custom w-100 py-2">
+                            <i class="bi bi-plus-lg"></i> Tambah Tugas
                         </button>
                     </div>
                 </div>
@@ -291,7 +291,7 @@
             <form method="POST">
                 <div class="row">
                     <!-- MATKUL -->
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-3 mb-3">
                         <select name="jadwal_id" class="form-control">
                             <option value=""> Pilih Matkul</option>
                             <?php
@@ -314,7 +314,7 @@
                         <input type="date" name="deadline" class="form-control" required>
                     </div>
                     <!-- CATATAN -->
-                    <div class="col-md-2 mb-2">
+                    <div class="col-md-3 mb-2">
                         <input type="text" name="catatan" class="form-control" placeholder="Catatan tugas">
                     </div>
                     <!-- STATUS -->
@@ -325,9 +325,9 @@
                         </select>
                     </div>
                     <!-- BUTTON -->
-                    <div class="col-md-2 mb-3">
-                        <button type="submit" name="tambah_tugas" class="btn btn-warning w-100 btn-custom">
-                            Tambah Tugas
+                    <div class="col-md-12">
+                        <button type="submit" name="tambah_tugas" class="btn btn-warning btn-custom w-100 py-2">
+                            <i class="bi bi-plus-lg"></i> Tambah Tugas
                         </button>
                     </div>
                 </div>
@@ -384,7 +384,7 @@
     </div>
 
     <footer class="text-center text-lg-start" style="background: linear-gradient(135deg,  #140a7e, #8489cc)">
-      <div class="text-center p-3" style="color: whitesmoke;">
+      <div class="text-center" style="color: whitesmoke;">
         © 2026 Schedulio | Azka Nida_124250030 - Cintia Mutiara_124250032
       </div>
     </footer>
