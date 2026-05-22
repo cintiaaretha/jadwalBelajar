@@ -14,12 +14,12 @@ if(isset($_POST['login'])){
             $error = "Email atau password salah!";
             $data = null;
         }
+    }
         if(isset($data) && $data !== null){
         $_SESSION['nama'] = $data['nama'];
         $_SESSION['id'] = $data['id'];
         header("Location: dashboard.php");
         exit;
-        }
     } else {
         $error = "Email atau password salah!";
     }
