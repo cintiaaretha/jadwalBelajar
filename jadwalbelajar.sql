@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2026 at 09:12 AM
+-- Generation Time: May 22, 2026 at 02:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,12 +45,16 @@ CREATE TABLE `jadwal` (
 INSERT INTO `jadwal` (`id`, `user_id`, `matkul`, `hari`, `jam_mulai`, `jam_selesai`, `ruangan`, `dosen`) VALUES
 (1, 1, 'Pengantar Bisnis', 'Jumat', '10:00:00', '11:45:00', 'Patt.I-1A', 'Budi Suvanto S.T., M.Eng.'),
 (2, 1, 'Bahasa Indonesia', 'Selasa', '12:30:00', '14:15:00', 'Patt.II-3C', 'Hermanto S.Pd., M.Hum.'),
-(3, 2, 'Algoritma dan Struktur Data', 'Kamis', '07:30:00', '10:00:00', 'Patt.I-3A', 'Wilis Kaswidjanti S.Si., M.Kom.'),
-(4, 2, 'Pengantar Metode Statistika', 'Selasa', '10:00:00', '11:45:00', 'Patt.I-3C', 'Daniel Eliazar Latumaerissa, S.Pd., M.Si.D.'),
 (5, 3, 'Manajemen & Organisasi', 'Rabu', '07:30:00', '09:15:00', 'Patt.II-3C', 'Yuli Fauziah S.T., M.T.'),
 (6, 3, 'Bahasa Indonesia', 'Kamis', '15:00:00', '16:45:00', 'Patt.III-3B', 'Yunie Herawati Ir., M.Hum.'),
 (7, 4, 'Pemrograman Web Dasar', 'Rabu', '12:30:00', '14:15:00', 'Patt.I-3B', 'Dessyanto Boedi P S.T., M.T.'),
-(8, 5, 'Pengantar Bisnis', 'Jumat', '10:00:00', '11:45:00', 'Patt.I-1A', 'Budi Suvanto S.T., M.Eng.');
+(8, 5, 'Pengantar Bisnis', 'Jumat', '10:00:00', '11:45:00', 'Patt.I-1A', 'Budi Suvanto S.T., M.Eng.'),
+(9, 7, 'Etika Profesi', 'Rabu', '12:00:00', '13:45:00', 'Pat.III 3A', 'Oliver Simanjutak'),
+(12, 9, 'Olahraga II', 'Senin', '07:20:00', '08:20:00', 'Auditorium', 'Rizki Kurniati Dr. S.Pd., M.Or.'),
+(13, 9, 'Etika Profesi', 'Selasa', '13:00:00', '14:30:00', 'Pat.III 3A', 'Oliver Simanjutak'),
+(14, 10, 'Pengantar Bisnis', 'Rabu', '09:00:00', '10:30:00', 'Pat.II 3C', 'Pak Budi'),
+(15, 10, 'Manajemen & Organisasi', 'Kamis', '10:00:00', '11:45:00', 'Pat.I 3B', 'Bu Yuli'),
+(16, 11, 'Kalkulus', 'Kamis', '07:30:00', '08:30:00', 'Pat.III 3C', 'Bu Juwai');
 
 -- --------------------------------------------------------
 
@@ -71,11 +75,15 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id`, `nama`, `email`, `password`) VALUES
 (1, 'Azka Nida', 'azka@gmail.com', 'azka123'),
-(2, 'Cintia Mutiara', 'cintia@gmail.com', 'cintia123'),
 (3, 'Arfaha Mizan', 'hamiz@gmail.com', 'hamiz123'),
 (4, 'Nadya Gildas', 'gildas@gmail.com', 'gildas123'),
 (5, 'Tsaqif Khan', 'tsaqif@gmail.com', 'tsaqif123'),
-(6, 'Feli Olivatus', 'feli@gmail.com', 'feli123');
+(6, 'Feli Olivatus', 'feli@gmail.com', 'feli123'),
+(7, 'Jovita Sekar Ayu', 'jovita@gmail.com', 'jovita123'),
+(8, 'Mark Lee', 'mark@gmail.com', 'mark123'),
+(9, 'Hanin Elia', 'hanin@gmail.com', '$2y$10$z.sfyQDdcl80gTnEiPrgSOKwPhwDOTFNs6.RsIfujTfeQXXMqswlu'),
+(10, 'Cintia Mutiara Aretha', 'cintia@gmail.com', '$2y$10$Sbb.n7QdlvCRQBWUyIZny.4DCGD5Ew5kz7D8KHkTLmWuWI66QHs4a'),
+(11, 'Annisa Pratita', 'tita@gmail.com', '$2y$10$m.6Yhw/zlmdqyQvNxByVjuNy92Jo1h3Yy3wxnv0rOfc0Kfmi6I0AC');
 
 -- --------------------------------------------------------
 
@@ -99,13 +107,14 @@ CREATE TABLE `tugas` (
 INSERT INTO `tugas` (`id`, `user_id`, `nama_tugas`, `deadline`, `catatan`, `status`) VALUES
 (1, 1, 'Tugas 10 Pengantar Bisnis', '2026-05-22', 'Materi: Manajemen Pemasaran.', 'Belum'),
 (2, 1, 'Esai Bahasa Indonesia', '2026-05-20', 'Rangkum jurnal lalu buat esai dan upload ke Google Drive.', 'Selesai'),
-(3, 2, 'Final Project Linked List', '2026-05-25', 'Buat program linked list menggunakan C++ lalu upload ke GitHub.', 'Belum'),
-(4, 2, 'Tugas Statistika', '2026-05-24', 'Hitung mean, median, dan modus dari data survei mahasiswa.', 'Belum'),
 (5, 3, 'Analisis Organisasi', '2026-05-27', 'Buat presentasi struktur organisasi perusahaan dalam format PPT.', 'Selesai'),
 (6, 3, 'Karya Ilmiah', '2026-05-29', 'Buat karya ilmiah minimal 700 kata format PDF.', 'Belum'),
 (7, 4, 'Latihan Responsi Web', '2026-05-15', 'Gabungkan PHP dengan HTML dan CSS untuk membuat halaman dinamis.', 'Belum'),
 (8, 5, 'Analisis Sistem Informasi', '2026-05-22', 'Buat laporan mengenai penerapan sistem informasi dalam bisnis.', 'Belum'),
-(10, 2, 'SI-ARAN', '2026-05-18', 'Cari tempat syuting', 'Belum');
+(12, 7, 'Esai Bahasa Inggris', '2026-05-20', 'Tambahin Sitasi', 'Selesai'),
+(15, 9, 'Esai Bahasa Inggris', '2026-05-25', 'Tambahin Sitasi', 'Selesai'),
+(16, 9, 'Tugas Statistika', '2026-05-26', 'Hitung mean, median, dan modus dari data survei mahasiswa.', 'Belum'),
+(17, 10, 'Latihan Responsi', '2026-05-23', 'Pohon Telusur Biner', 'Selesai');
 
 --
 -- Indexes for dumped tables
@@ -140,19 +149,19 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
