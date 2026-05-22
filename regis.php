@@ -24,7 +24,8 @@ if(isset($_POST['regis'])){
         $error = "Password dan Konfirmasi Password tidak cocok!";
     }
     else {
-        $query = "INSERT INTO pengguna (nama, email, password) VALUES ('$nama', '$email', '$password')";
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO pengguna (nama, email, password) VALUES ('$nama', '$email', '$password_hash')";
         if(mysqli_query($koneksi, $query)){
             $berhasil = "Pendaftaran berhasil! Silahkan login.";
         } else {
